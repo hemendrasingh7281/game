@@ -1,19 +1,15 @@
-"""
-ROCK–PAPER–SCISSORS–PLUS REFEREE
-Offline | Rule-based | ADK-style tools | CLI
-"""
+
 
 import random
 from dataclasses import dataclass
 from typing import Optional, Literal
 
-# ================= ADK-STYLE TOOL DECORATOR =================
+
 def tool(fn):
     fn.is_tool = True
     return fn
 
 
-# ================= GAME STATE =================
 @dataclass
 class GameState:
     round_number: int = 0
@@ -24,7 +20,7 @@ class GameState:
     game_over: bool = False
 
 
-# ================= TOOLS =================
+
 @tool
 def validate_move(move: str, bomb_used: bool) -> bool:
     valid_moves = {"rock", "paper", "scissors", "bomb"}
@@ -64,7 +60,7 @@ def update_game_state(state: GameState, winner: Optional[str]) -> None:
         state.game_over = True
 
 
-# ================= AGENT =================
+
 class RefereeAgent:
     def __init__(self):
         self.state = GameState()
@@ -122,7 +118,7 @@ class RefereeAgent:
             print("DRAW 🤝")
 
 
-# ================= CLI =================
+
 def run_game():
     print("ROCK-PAPER-SCISSORS-PLUS REFEREE")
     print("=" * 44)
@@ -139,3 +135,4 @@ def run_game():
 
 if __name__ == "__main__":
     run_game()
+s
